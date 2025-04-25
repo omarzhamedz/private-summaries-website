@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Summaries Access</title>
+    <style>
+        /* Simple CSS for the form */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #error-message {
+            margin-top: 20px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Invite Code</h1>
+        <form id="inviteForm">
+            <input type="text" id="inviteCode" placeholder="Enter Invite Code" required />
+            <button type="submit">Submit</button>
+        </form>
+        <div id="error-message">Invalid or expired invite code.</div>
+    </div>
+
+    <script>
+        // Predefined list of valid invite codes (hardcoded for simplicity)
+        const validInviteCodes = ['ABC123', 'XYZ789'];
+
+        document.getElementById('inviteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const inviteCode = document.getElementById('inviteCode').value.trim();
+            if (validInviteCodes.includes(inviteCode)) {
+                // Redirect to the content page or show the content
+                window.location.href = "welcome.html";  // Example redirect to a welcome page
+            } else {
+                // Show error message if the invite code is invalid
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
